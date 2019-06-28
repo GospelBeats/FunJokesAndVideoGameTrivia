@@ -3,6 +3,9 @@ let spotifyApiKey = "0c13fbb948dc49b19bd7e6675f6ae981";
 //YouTube API Key
 let youtubeAPIKey = "AIzaSyDuAVXHcx-uIsVKglPzuOODT5RVMnnqztU";
 
+let genre = "";
+let artist = "";
+let isReal = true;
 //Used to determine if an Artist or Genre is in fact real. If they aren't, it will let the user know that the genre or artist doesn't exist.
 function isReal() { 
 
@@ -13,8 +16,8 @@ function getGenre() {
 
 }
 
-//Used to get the artist information from Spotify including their albums and top rated songs.
-function getArtist() { 
+//Used to get the top rated artists information from Spotify including their albums and top rated songs.
+function getArtists() { 
 
 }
 
