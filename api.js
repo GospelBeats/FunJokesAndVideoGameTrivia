@@ -11,22 +11,23 @@ let genre = "";
 let artist = "";
 let isReal = true;
 
+request('https://api.spotify.com/api/token');
 //Authorizes the user
-    $.ajax({
-        method: "POST",
-        url: 'https://api.spotify.com/api/token',
-        data: {
-            "grant_type": "authorization_code",
-            "code": code,
-            "redirect_url": myUrl,
-            "client_secret": spotifySecretKey,
-            "client_id": spotifyApiKey,
+$.ajax({
+    method: "POST",
+    url: 'https://api.spotify.com/api/token',
+    data: {
+        "grant_type": "authorization_code",
+        "code": code,
+        "redirect_uri": myUrl,
+        "client_secret": spotifySecretKey,
+        "client_id": spotifyApiKey,
 
-        },
-        success: function(response) {
-            console.log("Success");
-        }
-})
+    },
+    success: function(response) {
+        console.log("Success");
+    }
+});
 //Used to determine if an Artist or Genre is in fact real. If they aren't, it will let the user know that the genre or artist doesn't exist.
 function isReal() { 
     
