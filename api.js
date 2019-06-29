@@ -18,7 +18,7 @@ let isReal = true;
         data: {
             "grant_type": "authorization_code",
             "code": code,
-            "redirect_uri": myUrl,
+            "redirect_url": myUrl,
             "client_secret": spotifySecretKey,
             "client_id": spotifyApiKey,
 
