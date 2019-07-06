@@ -1,17 +1,22 @@
+// AIzaSyBrNJfNNQgwWVOjUh_7zQJxNi34DkTEBXA
+// https://www.googleapis.com/youtube/v3/search?part=snippet&q=beyonce&key=AIzaSyBrNJfNNQgwWVOjUh_7zQJxNi34DkTEBXA
 //Spotify API Key
 let spotifyApiKey = "0c13fbb948dc49b19bd7e6675f6ae981";
+//YouTube API Key
+let YouTubeAPIKey = "AIzaSyBrNJfNNQgwWVOjUh_7zQJxNi34DkTEBXA";
 //TasteDive API (Quota, maximum allowed requests per hour 300 use contact form if more needed)
-let tasteDiveAPIKey = "339618-Top10Gen-P67EVD3K";
+//let tasteDiveAPIKey = "339618-Top10Gen-P67EVD3K";
 //base endpoint and example https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction
 
 $("button").on("click", function () {
   // In this case, the "this" keyword refers to the button that was clicked
-  var topGenre = $(this).attr("data-person");
+  var topGenre = $(this).attr("data-search");
 
   // Constructing a URL to search TasteDive for the name of the person who said the quote
-  var queryURL = "https://tastedive.com/api/similar?q=" +
-    topGenre + "k=339618-Top10Gen-P67EVD3K";
+  var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
+    topGenre + "&key=" + YouTubeAPIKey;
   console.log(queryURL);
+  //data-genre = rap
 
   // Performing our AJAX GET request
   $.ajax({
@@ -20,38 +25,43 @@ $("button").on("click", function () {
   })
          // After the data comes back from the API
          .then(function(response) {
+           console.log(response);
+           $("#video-dislay").html(`<img src="${response.snippet[items].images["downsized"].url}+">`);
+
+
+           var genreImage = $("<img>")
           // Storing an array of results in the results variable
-          var results = response.data;
+          //var results = response.data;
 
           // Looping over every result item
-          for (var i = 0; i < results.length; i++) {
+          // for (var i = 0; i < results.length; i++) {
 
-            // Only taking action if the photo has an appropriate rating
-            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-              // Creating a div for the gif
-              var gifDiv = $("<div>");
+          //   // Only taking action if the photo has an appropriate rating
+          //   if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+          //     // Creating a div for the gif
+          //     var gifDiv = $("<div>");
 
-              // Storing the result item's rating
-              var rating = results[i].rating;
+          //     // Storing the result item's rating
+          //     var rating = results[i].rating;
 
-              // Creating a paragraph tag with the result item's rating
-              var p = $("<p>").text("Rating: " + rating);
+          //     // Creating a paragraph tag with the result item's rating
+          //     var p = $("<p>").text("Rating: " + rating);
 
-              // Creating an image tag
-              var personImage = $("<img>");
+          //     // Creating an image tag
+          //     var personImage = $("<img>");
 
-              // Giving the image tag an src attribute of a proprty pulled off the
-              // result item
-              personImage.attr("src", results[i].images.fixed_height.url);
+          //     // Giving the image tag an src attribute of a proprty pulled off the
+          //     // result item
+          //     personImage.attr("src", results[i].images.fixed_height.url);
 
-              // Appending the paragraph and personImage we created to the "gifDiv" div we created
-              gifDiv.append(p);
-              gifDiv.append(personImage);
+          //     // Appending the paragraph and personImage we created to the "gifDiv" div we created
+          //     gifDiv.append(p);
+          //     gifDiv.append(personImage);
 
-              // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-              $("#gifs-appear-here").prepend(gifDiv);
-            }
-          }
+          //     // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+          //     $("#gifs-appear-here").prepend(gifDiv);
+          //   }
+          // }
         });
     });
 // let genre = "";
