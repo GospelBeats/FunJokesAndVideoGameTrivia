@@ -1,38 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  
+  <title>Top Ten Artist</title>
+
+  <style>
+  .ht {
+    height: 100px;
+  }
+
+  h1,h2 {
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .blue {
+    background-color:#18121E;
+  }
+  .green {
+    background-color:#233237;
+  }
+  .red {
+    background-color:#ebe9e9;
+  }
+  .yel {
+    background-color:rgb(250, 232, 194);
+  }
+  </style>
 </head>
-
 <body>
+<div class="w3-container red">
 
-    <div id="artist-song-name"></div>
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Input Genre</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Input Genre Here">
-        </div>
+  <div class="w3-container w3-center w3-padding-48 text-white green">
+    <div class="w3-quarter"><i style='font-size:24px;color:#984B43' class='fas'>&#xf025;</i></div><!--added-->
+    <div class="w3-quarter"><i style='font-size:24px;color:#EAC67A' class='fas'>&#xf3c9;</i></div><!--added-->
+    <div class="w3-quarter"><i style='font-size:24px;color:#18121E' class='fas'>&#xf569;</i></div><!--added-->
+    <div class="w3-quarter"><i style='font-size:24px;color:green' class='fas'>&#xf001;</i></div><!--added-->
+  <h1 class="mt-5">Top Ten Songs By Genre</h1>
+  <hr>
+  <h2>Choose a Genre</h2>
+      <div class="dropdown open">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Genres
+          </button>
+          <div class="dropdown-menu">
+            <h6 class="dropdown-header">Choose</h6>
+            <a class="dropdown-item" href="#!">rap</a>
+            <a class="dropdown-item" href="#!">r&b</a>
+            <a class="dropdown-item" href="#!">edm</a>
+            <a class="dropdown-item" href="#!">trap soul</a>
+            <a class="dropdown-item" href="#!">christian hip hop</a>
+            <a class="dropdown-item" href="#!">gospel rap</a>
+            <a class="dropdown-item" href="#!">trap music</a>
+            <a class="dropdown-item" href="#!">pop</a>
+            <a class="dropdown-item" href="#!">reggae</a>
+            <a class="dropdown-item" href="#!">hip hop</a>
+          </div>
+      </div>
 
-        <button> Submit</button>
+  </div> <!-- heading div -->
 
-        <div id="youtube-screen"></div>
+<hr>
+
+<div class="w3-container w3-center bg-white border border-secondary">
+
+    <div class="w3-table w3-margin-top w3-padding-large mb-5">
+      <table class="w3-table w3-striped">
+        <tr>
+          <th>Artist Name</th>
+          <th>Song Name</th>
+          <th>Video</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Sunrise</td>
+          <td>www.youtube.com</td>
+        </tr>
+      </table>
+    </div>
+
+</div> <!-- table div -->
+<hr>
+    <div class="w3-container w3-center w3-row youtube w3-margin-top w3-padding-large yel">
+      <h1 class="mb-4"><i class='fas fa-video'></i> Youtube Videos</h1>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-1h8HQ6rd5U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> <!-- youtube div-->
+
+</div> <!-- main container-->
+
+<footer class="blue ht w3-center">
+  <p class="text-white pt-5">Copyright &copy All Rights Reserved 2019</p>
+</footer>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-<!--jQuery link-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--js link for YouTube API-->
-<script src="https://apis.google.com/js/api.js"></script>
-<!--link to external js sheet-->
-<script src="assets/javascript/api.js"></script>
-
-
 </html>
