@@ -33,35 +33,40 @@
   .yel {
     background-color:rgb(250, 232, 194);
   }
+
+  .top-mar {
+    margin-top: 100px;
+  }
   </style>
 </head>
 <body>
 <div class="w3-container red">
 
-  <div class="w3-container w3-center w3-padding-48 text-white green">
-    <div class="w3-quarter"><i style='font-size:24px;color:#984B43' class='fas'>&#xf025;</i></div><!--added-->
-    <div class="w3-quarter"><i style='font-size:24px;color:#EAC67A' class='fas'>&#xf3c9;</i></div><!--added-->
-    <div class="w3-quarter"><i style='font-size:24px;color:#18121E' class='fas'>&#xf569;</i></div><!--added-->
-    <div class="w3-quarter"><i style='font-size:24px;color:green' class='fas'>&#xf001;</i></div><!--added-->
-  <h1 class="mt-5">Top Ten Songs By Genre</h1>
+  <div class="w3-container w3-center w3-padding-48 text-white green w3-row-padding">
+    <div class="w3-quarter mb-3"><i style='font-size:36px;color:#984B43' class='fas'>&#xf025;</i></div><!--added-->
+    <div class="w3-quarter mb-3"><i style='font-size:36px;color:#EAC67A' class='fas'>&#xf3c9;</i></div><!--added-->
+    <div class="w3-quarter mb-3"><i style='font-size:36px;color:#18121E' class='fas'>&#xf569;</i></div><!--added-->
+    <div class="w3-quarter mb-3"><i style='font-size:36px;color:green' class='fas'>&#xf001;</i></div><!--added-->
+  <h1 class="top-mar">Top Ten Songs By Genre</h1>
   <hr>
   <h2>Choose a Genre</h2>
       <div class="dropdown open">
+          <button type="button" class="btn btn-info mr-3">Log In</button>
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Genres
           </button>
-          <div class="dropdown-menu">
+          <div id="genre" class="dropdown-menu">
             <h6 class="dropdown-header">Choose</h6>
-            <a class="dropdown-item" href="#!">rap</a>
-            <a class="dropdown-item" href="#!">r&b</a>
-            <a class="dropdown-item" href="#!">edm</a>
-            <a class="dropdown-item" href="#!">trap soul</a>
-            <a class="dropdown-item" href="#!">christian hip hop</a>
-            <a class="dropdown-item" href="#!">gospel rap</a>
-            <a class="dropdown-item" href="#!">trap music</a>
-            <a class="dropdown-item" href="#!">pop</a>
-            <a class="dropdown-item" href="#!">reggae</a>
-            <a class="dropdown-item" href="#!">hip hop</a>
+            <a class="dropdown-item" data-src="rap" href="#!">rap</a>
+            <a class="dropdown-item" data-src="r&b" href="#!">r&b</a>
+            <a class="dropdown-item" data-src="edm" href="#!">edm</a>
+            <a class="dropdown-item" data-src="rock" href="#!">trap soul</a>
+            <a class="dropdown-item" data-src="latin" href="#!">christian hip hop</a>
+            <a class="dropdown-item" data-src="house" href="#!">gospel rap</a>
+            <a class="dropdown-item" data-src="electropop" href="#!">trap music</a>
+            <a class="dropdown-item" data-src="pop" href="#!">pop</a>
+            <a class="dropdown-item" data-src="reggae" href="#!">reggae</a>
+            <a class="dropdown-item" data-src="tropical" href="#!">hip hop</a>
           </div>
       </div>
 
