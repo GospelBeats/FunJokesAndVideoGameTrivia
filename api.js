@@ -25,7 +25,7 @@ $.ajax({
 
     },
     success: function(response) {
-        console.log("Success");
+        console.log(Object);
     }
 });
 //Used to determine if an Artist or Genre is in fact real. If they aren't, it will let the user know that the genre or artist doesn't exist.
