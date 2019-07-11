@@ -20,18 +20,13 @@ function random(min, max) {
  * The main program
  */
 $.ajax({
-  url: 'https://api.spotify.com/v1/search?q=' + genre + '&type=artist&limit=10',
-  headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization:
-          'Bearer BQAbwj92_nJtEJCg_wldC1AAZ-MtEkxAGHtyW9fnlNrhoOLluW0zDQf9QexgDM96d_9R4IlKWjQKLoVXaOhlNseJoIxXTYHy6xw6ZYCb0ki3jG6XhSUp2BUvbCMAZ_3cOhCpTXN7Sx3JE1lLgBMDzBSCoT2S5d8gyEYJESQYodIhS_I'
-  },
-  type: 'GET',
-  success: function(result) {
-      console.log(result);
-  }
-});
+  url: 'https://api.spotify.com',
+  method: 'GET'
+  }).then(function(result){ 
+    console.log(result);
+  });
+
+  
 function main() {
     // your program here
     console.log("main() started...");
@@ -39,16 +34,16 @@ function main() {
 }
 
 $('document').ready(main);
+$("#genre").on('click', function(e) {
 
-function myLogin() {
-    var clientId = '0c13fbb948dc49b19bd7e6675f6ae981'; // from https://developer.spotify.com/dashboard/applications
-    var callbackURL = window.location.href; // the current web page
-    spotify.login(clientId, callbackURL);
-}
+  // assign variable to clicked target attribute
+  let genre = e.target.getAttribute('data-src');
+  console.log(genre);
+});
 
 $("#dropdown-item").on("click", function() {
-    let genre = e.target.getAttribute('data-src');
-        var request = $.get("https://api.spotify.com/v1/search?q=" + genre + "&type=track&limit=10");
+        event.preventDefault();
+        var request = $.get();
         request.done(function(data) {
           DisplaySearchResults(data);
           console.log(data);
