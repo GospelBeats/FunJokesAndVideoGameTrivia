@@ -1,112 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-  
-  <title>Top Ten Artist</title>
-
-  <style>
-  .ht {
-    height: 100px;
-  }
-
-  h1,h2 {
-    font-family: 'Source Code Pro', monospace;
-  }
-
-  .blue {
-    background-color:#18121E;
-  }
-  .green {
-    background-color:#233237;
-  }
-  .red {
-    background-color:#ebe9e9;
-  }
-  .yel {
-    background-color:rgb(250, 232, 194);
-  }
-
-  .top-mar {
-    margin-top: 100px;
-  }
-  </style>
+	<meta charset="utf-8">
+	<title>Untitled Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap" rel="stylesheet">
+	<style>
+	.gfont {
+		font-family: 'Comfortaa', cursive;
+	}
+	</style>
 </head>
+
 <body>
-<div class="w3-container red">
+	<div class="container mt-5 jumbotron w3-card">
+	<h1 id="timer" class="text-center gfont text-primary">Jokes And Video Game Trivia!</h1>
+		
+	<hr>
+		
+	<p class="lead">Get Random Joke</p>
+	<button id="jokes" class="btn btn-secondary">Click Me!</button>
+	<br><br>
+	<p id="display-joke"></p>
+	<p id="punchline"></p>
+<!--	<div id="nuButJ"></div>-->
+	<button id="um">punchline</button>	
+	<hr>
+		
+	<p class="lead">Video Game Trivia</p>
+	<button id="question" class="btn btn-secondary">Click Me!</button>
+	<br><br>
+	<div id="ques" class="gfont"></div>
+	<div id="one"></div>
+	<div id="two"></div>
+	
+	<br>
+	<div id="nuButQ"></div>
+	<br>
+	<h2 id="answer-display" class="text-center gfont"></h2>
+	</div>
 
-  <div class="w3-container w3-center w3-padding-48 text-white green w3-row-padding">
-    <div class="w3-quarter mb-3"><i style='font-size:36px;color:#984B43' class='fas'>&#xf025;</i></div><!--added-->
-    <div class="w3-quarter mb-3"><i style='font-size:36px;color:#EAC67A' class='fas'>&#xf3c9;</i></div><!--added-->
-    <div class="w3-quarter mb-3"><i style='font-size:36px;color:#18121E' class='fas'>&#xf569;</i></div><!--added-->
-    <div class="w3-quarter mb-3"><i style='font-size:36px;color:green' class='fas'>&#xf001;</i></div><!--added-->
-  <h1 class="top-mar">Top Ten Songs By Genre</h1>
-  <hr>
-  <h2>Choose a Genre</h2>
-      <div class="dropdown open">
-          <button type="button" class="btn btn-info mr-3">Log In</button>
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Genres
-          </button>
-          <div id="genre" class="dropdown-menu">
-            <h6 class="dropdown-header">Choose</h6>
-            <a class="dropdown-item" data-src="rap" href="#!">rap</a>
-            <a class="dropdown-item" data-src="r&b" href="#!">r&b</a>
-            <a class="dropdown-item" data-src="edm" href="#!">edm</a>
-            <a class="dropdown-item" data-src="rock" href="#!">trap soul</a>
-            <a class="dropdown-item" data-src="latin" href="#!">christian hip hop</a>
-            <a class="dropdown-item" data-src="house" href="#!">gospel rap</a>
-            <a class="dropdown-item" data-src="electropop" href="#!">trap music</a>
-            <a class="dropdown-item" data-src="pop" href="#!">pop</a>
-            <a class="dropdown-item" data-src="reggae" href="#!">reggae</a>
-            <a class="dropdown-item" data-src="tropical" href="#!">hip hop</a>
-          </div>
-      </div>
+	<script>
+		
+		/************************** JOKES ******************************************/
+		
+		$("#um").hide();
+		
+		$("#jokes").on('click', function() {
+			
+			$("#punchline").text("");
+			
+			$.ajax({
+			url: "https://official-joke-api.appspot.com/jokes/random",
+			method: 'GET'
+			}).then(function(result) {
+			
+			let joke = result.setup;
+				
+			$("#jokes").hide();
+			$("#display-joke").text(joke);	
+			
+				$("#um").show();
+				// punchline button event
+				$("#um").on('click', function(){
+					
+				$("#um").hide();
+				let punchline = result.punchline;
 
-  </div> <!-- heading div -->
+				$("#punchline").text(punchline);
+					
+				$("#jokes").text("Next Joke").show();
 
-<hr>
-
-<div class="w3-container w3-center bg-white border border-secondary">
-
-    <div class="w3-table w3-margin-top w3-padding-large mb-5">
-      <table class="w3-table w3-striped">
-        <tr>
-          <th>Artist Name</th>
-          <th>Song Name</th>
-          <th>Video</th>
-        </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Sunrise</td>
-          <td>www.youtube.com</td>
-        </tr>
-      </table>
-    </div>
-
-</div> <!-- table div -->
-<hr>
-    <div class="w3-container w3-center w3-row youtube w3-margin-top w3-padding-large yel">
-      <h1 class="mb-4"><i class='fas fa-video'></i> Youtube Videos</h1>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/-1h8HQ6rd5U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div> <!-- youtube div-->
-
-</div> <!-- main container-->
-
-<footer class="blue ht w3-center">
-  <p class="text-white pt-5">Copyright &copy All Rights Reserved 2019</p>
-</footer>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+				}); // end of button click
+				
+			}); // end of api call
+			
+		}) // end of event
+		
+		/*************************** JOKES *****************************************/
+		
+		
+		/**************************** VIDEO GAME TRIVIA ****************************/
+		
+		$("#question").on("click", function () {
+			
+			$.ajax({
+			url: "https://opentdb.com/api.php?amount=1&category=15&difficulty=easy&type=boolean",
+			method: 'GET'
+			}).then(function(result) {
+			
+			// putting question in variable
+			let ques = result.results[0].question;
+				
+			// hiding the submit button
+			$("#question").hide();
+				
+			// displaying the question
+			$("#ques").html("<h2> " + ques + " </h2> <br>");
+			$("#one").html("<input type='radio' value='True'> True</input> <br />");
+			$("#two").html("<input type='radio' value='False'> False</input> <br />");
+				
+			$("#nuButQ").html("<button>submit</button>");
+			
+			 
+			// if user's choice matches the correct answer
+			
+			$("#nuButQ").on('click', function () {
+				
+			// put user's choice in a variable
+			let checked = $("input[type='radio']:checked").val();
+			
+			// correct answer from api in a variable
+			let correct = result.results[0].correct_answer;
+			
+			if (checked === correct) {
+			
+				// display user has the correct answer
+				$("#answer-display").text("Hoorrayy!! You got the answer correct!");
+				// shows text for about 1 sec then goes away
+				setTimeout(function(){ 
+					$("#answer-display").text("");
+					$('input[type="radio"]').prop('checked', false);
+					}, 1500);	
+				$("#question").text("Next Question").show();
+				
+				
+				
+				} else {
+				$("#answer-display").text("Sorry!! The answer was " + correct);
+					setTimeout(function(){ 
+					$("#answer-display").text(""); 
+					$('input[type="radio"]').prop('checked', false);
+					}, 1500);
+				$("#question").text("Next Quesion").show();	
+				}
+			}); // end of button function
+				
+				
+		});	// end of api call
+	}); // end of event
+		
+	/******************************** VIDEO GAME TRIVIA ******************************/
+		
+	</script>
 </body>
+
 </html>
+	
