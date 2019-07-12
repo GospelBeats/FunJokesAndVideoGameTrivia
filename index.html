@@ -3,8 +3,9 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Untitled Document</title>
+	<title>Jokes & Games</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap" rel="stylesheet">
@@ -12,24 +13,31 @@
 	.gfont {
 		font-family: 'Comfortaa', cursive;
 	}
+	.bg {
+		background-image: url(face.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 	</style>
 </head>
 
-<body>
+<body class="bg">
 	<div class="container mt-5 jumbotron w3-card">
-	<h1 id="timer" class="text-center gfont text-primary">Jokes And Video Game Trivia!</h1>
+	<h1 id="timer" class="text-center gfont w3-text-red w3-bottombar">
+	<i class='far fa-grin-beam' style='font-size:48px;color:blue'></i> Jokes And Video Game Trivia! <i class='far fa-laugh-squint' style='font-size:48px;color:rgb(167, 165, 46)'></i></h1>
 		
 	<hr>
-		
+	<div class="w3-border w3-padding">
 	<p class="lead">Get Random Joke</p>
 	<button id="jokes" class="btn btn-secondary">Click Me!</button>
 	<br><br>
-	<p id="display-joke"></p>
-	<p id="punchline"></p>
-<!--	<div id="nuButJ"></div>-->
+	<h2 id="display-joke" class="gfont"></h2>
+	<h3 id="punchline" class="gfont w3-text-indigo"></h3>
 	<button id="um">punchline</button>	
+	</div>
 	<hr>
-		
+	
+	<div class="w3-border w3-padding">
 	<p class="lead">Video Game Trivia</p>
 	<button id="question" class="btn btn-secondary">Click Me!</button>
 	<br><br>
@@ -42,7 +50,7 @@
 	<br>
 	<h2 id="answer-display" class="text-center gfont"></h2>
 	</div>
-
+	</div>
 	<script>
 		
 		/************************** JOKES ******************************************/
