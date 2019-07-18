@@ -1,12 +1,7 @@
-# Project-1
- With your group, answer each of the following questions:
-  1. Who is your target audience?
-  People who like music within an age range of 15-35.
-  2. What is the problem that the product will address?
-  Finding top 10 artists based on genre. 
-  3. What is the primary goal of the product?
-  To display most recent content of top 10 artists.
-  4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
-As a user I want to search top 10 music artists.
-As a user I want to search top 10 artists songs.
-As a user I want to view YouTube videos of top 10 songs.
+Team Project
+
+https://github.com/GospelBeats/FunJokesAndVideoGameTrivia
+
+https://gospelbeats.github.io/FunJokesAndVideoGameTrivia/
+
+This was a team project where we utilized 2 separate APIs in a single application. One API was used to generate a random joke with a punchline. The interface prompted the end user to click a button for a random joke. Once the user clicks the button, a random joke appears along with another button to reveal the punchline. The other API was used to generate a random question about video game trivia. 'On Click' the user is presented with a random True/False question. Once the user answers the question, they are prompted with a message letting them know if the answer is correct or not.
